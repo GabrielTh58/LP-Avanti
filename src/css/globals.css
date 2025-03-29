@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+    --primary-color: #005CFF;
+
+    --primary-font: 'Nunito Sans', sans-serif;
+    --secondary-font: 'Nunito', sans-serif;
+}
+
+@theme{
+    --color-blue-primary: var(--primary-color);
+
+    --font-nunito-sans: var(--primary-font);
+    --font-nunito: var(--secondary-font);
+}
+
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: var(--primary-font);
+    }
+    
+}
+
+@layer components {
+      
+}
