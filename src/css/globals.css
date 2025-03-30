@@ -3,8 +3,8 @@
 :root {
     --primary-color: #005CFF;
 
-    --primary-font: 'Nunito Sans', sans-serif;
-    --secondary-font: 'Nunito', sans-serif;
+    --primary-font: 'Nunito', sans-serif;
+    --secondary-font: 'Nunito Sans', sans-serif;
 }
 
 @theme{
