@@ -29,7 +29,7 @@
         <section class="max-w-[1440px] px-6 py-3 mx-auto">
             <div class="flex items-center justify-between gap-6">
                 <div class="flex items-center gap-16">
-                    <img src="src/images/logo.png" alt="Logo Avanti">
+                    <img src="src/assets/images/logos/Avanti_Main_Logo.svg" alt="Logo Avanti">
 
                     <div class="w-[570px] flex items-center justify-between border border-zinc-400 rounded-lg px-2 py-1.5">
                         <input 
@@ -48,15 +48,30 @@
                         <span>Nome cliente!</span>
                     </div>
 
-                    <div>
-                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <div class="relative">
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                        <div class="flex justify-center items-center absolute -top-2 -right-2 w-4 h-4 bg-blue-primary rounded-full">
+                            <span class="text-white text-xs font-bold">2</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Colocar <a> -->
             <nav class="my-6">
                 <ul class="flex items-center justify-between text-sm">
-                    <li><i class="fa-solid fa-bars mr-1"></i> Todas as Categorias</li>
+                    <li class="relative cursor-pointer">
+                        <button id="dropdownButton" class="flex items-center cursor-pointer hover:text-blue-primary">
+                            <i class="fa-solid fa-bars mr-1"></i>
+                            Todas as Categorias
+                        </button>
+
+                        <div id="dropdownMenu" class="dropdown-menu hidden absolute left-0 mt-2 bg-white border rounded shadow-lg nav-shadow">
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Categoria 1</li>
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Categoria 2</li>
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Categoria 3</li>
+                        </div>
+                    </li>
                     <li>Departamentos</li>
                     <li>Departamentos</li>
                     <li>Departamentos</li>
@@ -73,7 +88,7 @@
     <main class="flex flex-col gap-24">
         <section class="w-full h-[510px] flex justify-center items-center bg-[#E7E7EA]">
             <div class="gap-20">
-                <img src="src/images/hero.png" alt="Imagem de roupas em cima de um banco">
+                <img src="src/assets/images/hero.png" alt="Imagem de roupas em cima de um banco">
             </div>
 
             <div class="flex flex-col uppercase ">
@@ -83,19 +98,17 @@
             </div>
         </section>
 
-        <section class="max-w-[1440px] mx-auto">
+        <!-- Produtos -->
+        <section class="max-w-[1440px] mx-auto font-nunito">
             <h2 class="text-xl font-bold mb-5">Lançamentos</h2>
 
-            <div>
-                <div>
-
-                </div>
+            <div data-product-id class="w-full flex items-center gap-4">
             </div>
         </section>
 
         <section class="max-w-[1440px] mx-auto flex items-center gap-9">
             <div class="w-1/2 flex items-center justify-center bg-zinc-300">
-                <img src="src/images/cup.png" alt="Xícara">
+                <img src="src/assets/images/cup.png" alt="Xícara">
             </div>
 
             <div class="w-1/2 flex flex-col gap-5 ">
@@ -142,14 +155,14 @@
                 </div>
     
                 <div class="w-1/2">
-                    <img src="src/images/cup2.png" alt="Uma Xícara em cima de uma mesa">
+                    <img src="src/assets/images/cup2.png" alt="Uma Xícara em cima de uma mesa">
                 </div>
             </div>
         </section>
 
         <section class="max-w-[1440px] mx-auto flex items-center gap-9">
             <div class="w-1/2 flex items-center justify-center bg-zinc-300">
-                <img src="src/images/cup.png" alt="Xícara">
+                <img src="src/assets/images/cup.png" alt="Xícara">
             </div>
 
             <div class="w-1/2 flex flex-col gap-5 ">
@@ -167,34 +180,117 @@
             </div>
         </section>
 
-        <section class="max-w-[1440px] mx-auto">
+        <!-- Produtos -->
+        <section class="max-w-[1440px] mx-auto font-nunito">
             <h2 class="text-xl font-bold mb-5">Lançamentos</h2>
 
-            <div>
-                <div>
-
-                </div>
+            <div data-product-id class="w-full flex items-center gap-4">
             </div>
         </section>
 
-        <section class="w-full h-[660px] flex justify-center items-center bg-[url('src/images/bg-avanti.png')] bg-center">
+        <!-- Contato -->
+        <section class="w-full h-[660px] flex justify-center items-center bg-[url('/src/assets/images/bg-avanti.png')] bg-center bg-no-repeat bg-cover">
             <div class="w-full bg-blue-primary flex justify-center items-center">
-                <p class="text-3xl text-white">Entre em contato conosco e verifique a disponibilidade para sua região!</p>
+                <p class="text-3xl text-white py-14">Entre em contato conosco e verifique a disponibilidade para sua região!</p>
             </div>
         </section>
 
-        <section class="max-w-[1440px] mx-auto font-nunito-sans">
-            <h2 class="text-xl font-bold mb-6">Cadastre-se na nossa <span class="text-blue-primary">newsletter</span></h2>
+        <!-- Newsletter -->
+        <section class="w-[1440px] mx-auto font-nunito-sans">
+            <h2 class="text-xl text-center font-bold mb-6">Cadastre-se na nossa <span class="text-blue-primary">newsletter</span></h2>
 
-            <div class="w-full flex items-center justify-center bg-zinc-300">
-                <div class="flex items-center">
+            <div class="w-full h-44 flex items-center justify-center bg-zinc-300 rounded-lg">
+                <div class="w-4/5 flex items-center justify-center gap-6 text-sm">
+                    <input type="text" placeholder="Digite seu nome" class="flex-1 bg-white rounded-lg max-72 py-4 placeholder:pl-6 placeholder:text-black">
+                    <input type="email" placeholder="Digite seu e-mail" class="flex-1 bg-white rounded-lg max-72 py-4 placeholder:pl-6 placeholder:text-black">
+
+                    <label class="flex-1">
+                        <input type="checkbox" id="myCheckbox">
+                        Estou de acordo com a Política de Privacidade
+                    </label>
+
                     <button class="font-bold text-base text-white bg-blue-primary rounded-lg py-3.5 px-6">Cadastrar</button>
                 </div>
             </div>
         </section>
+
+        <footer>
+            <section class="w-full bg-zinc-300 py-16 font-nunito-sans">
+                <div class="flex items-center justify-evenly gap-2 text-sm mb-16">
+                    <div class="flex flex-col items-start">
+                        <img src="src/assets/images/logos/Avanti_Main_Logo.svg" alt="Logo Avanti">
+                        <div class="flex items-center gap-10 mt-11">
+                            <i class="fa-brands fa-instagram text-blue-primary text-xl"></i>
+                            <i class="fa-brands fa-facebook-f text-blue-primary text-xl"></i>
+                            <i class="fa-brands fa-tiktok text-blue-primary text-xl"></i>
+                            <i class="fa-brands fa-youtube text-blue-primary text-xl"></i>             
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start">
+                        <h4 class="font-bold">Institucional</h4>
+                        <ul class="flex flex-col gap-2 mt-3">
+                            <li><a href="#">Sobre Nós</a></li>
+                            <li><a href="#">Nossas Lojas</a></li>
+                            <li><a href="#">Privacidade e Segurança</a></li>
+                            <li><a href="#">Termos e Condições</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col items-start">
+                        <h4 class="font-bold">Central de Ajuda</h4>
+                        <ul class="flex flex-col gap-2 mt-3">
+                            <li><a href="#">Fale Conosco</a></li>
+                            <li><a href="#">Frete e Entrega</a></li>
+                            <li><a href="#">Trocas e Devoluções</a></li>
+                            <li><a href="#">Formas de Pagamento</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col items-start">
+                        <h4 class="font-bold">Atendimento</h4>
+                        <ul class="flex flex-col gap-2 mt-3">
+                            <li><a href="#"><strong>Telefone:</strong> (00) 1234-5678 </a></li>
+                            <li><a href="mailto:exemplo@exemplo.com.br"><strong>E-mail:</strong> exemplo@exemplo.com.br </a></li>
+                            <li><strong>Horário de atendimento:</strong></li>                  
+                            <li>Segunda a Sábado: 07h00 às 23h00</li>                  
+                            <li>Domingos e Feriados:  07h00 às 21h00</li>                                          
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-8">
+                    <img src="/src/assets/images/icons/amex.svg" alt="Ícone Amex">
+                    <img src="/src/assets/images/icons/mastercard.svg" alt="Ícone Mastercard">
+                    <img src="/src/assets/images/icons/visa.svg" alt="Ícone Visa">
+                    <img src="/src/assets/images/icons/hipercard.svg" alt="Ícone Hipercard">
+                    <img src="/src/assets/images/icons/elo.svg" alt="Ícone Elo">
+                    <img src="/src/assets/images/icons/b.svg" alt="Ícone B">
+                    <img src="/src/assets/images/icons/paypal.svg" alt="Ícone Paypal">
+                    <img src="/src/assets/images/icons/pix.svg" alt="Ícone Pix">
+                    <img src="/src/assets/images/icons/boleto.svg" alt="Ícone Boleto">
+
+                </div>
+            </section>
+
+            <section class="w-[1440px] mx-auto flex flex-col items-center justify-center gap-10">
+                <p class="pt-10 text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                    uis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan 
+                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                </p>
+
+                <div class="flex items-center justify-center gap-6 mb-10">
+                    <img src="/src/assets/images/logos/Encrypt.svg" alt="Lets Encrypt Logo">
+                    <img src="/src/assets/images/logos/Vtex_Pci.svg" alt="Vtex e PCI Logo">
+                    <img src="/src/assets/images/logos/Avanti_Mini.svg" alt="Avanti Logo">
+                    <img src="/src/assets/images/logos/Vtex.svg" alt="Vtex Logo">
+
+                </div>
+            </section>
+        </footer>
     </main>
+    <script defer src="src/scripts/index.js"></script>
 </body>
-
-
-
 </html>
