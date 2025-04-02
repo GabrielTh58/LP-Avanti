@@ -12,6 +12,7 @@
 
     --font-nunito-sans: var(--primary-font);
     --font-nunito: var(--secondary-font);
+
 }
 
 @layer base {
