@@ -158,91 +158,121 @@ const departments = [
     ]
   }
 ]
+// Verifica se a tela está no modo mobile
+function isMobileScreen() {
+  return window.innerWidth < 1024;
+}
 
-// Seleciona os elementos para o dropdown
-const dropdownButton = document.getElementById("dropdownButton")
-const dropdownMenu = document.getElementById("dropdownMenu")
-const departmentsList = document.getElementById("departmentsList")
-const categoriesContainer = document.getElementById("categoriesContainer")
-const listCategories = document.getElementById("listCategories")
+// Adiciona um listener para detectar a mudança de tamanho da tela
+window.addEventListener("resize", () => {
+  populateDepartments();
+});
 
-// Função para criar os departamentos dinamicamente
+// Seleciona os elementos
+const dropdownButton = document.getElementById("dropdownButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const departmentsList = document.getElementById("departmentsList");
+const categoriesContainer = document.getElementById("categoriesContainer");
+const listCategories = document.getElementById("listCategories");
+
+const dropDownButtonMobile = document.getElementById("dropDownButtonMobile");
+const dropDownMenuMobile = document.getElementById("dropDownMenuMobile");
+const categoriesContainerMobile = document.getElementById("categoriesContainerMobile");
+const listCategoriesMobile = document.getElementById("listCategoriesMobile");
+const departmentsListMobile = document.getElementById("departmentsListMobile");
+
+// Popula os departamentos de forma dinâmica
 function populateDepartments() {
-  departmentsList.innerHTML = "" // Limpa antes de preencher
+  departmentsList.innerHTML = "";
+  departmentsListMobile.innerHTML = "";
 
   departments.forEach((dept) => {
-    const departmentItem = document.createElement("li")
-    departmentItem.className = "w-full flex justify-between items-center cursor-pointer px-4 py-2 hover:text-blue-primary"
+    const departmentItem = document.createElement("li");
+    departmentItem.className =
+      "w-full flex justify-between items-center cursor-pointer px-1 py-1 sm:py-2 sm:px-4";
     departmentItem.innerHTML = `
-          <span>${dept.name}</span>
-          <i class="fa-solid fa-chevron-right text-[10px]"></i>
-      `
+        <span>${dept.name}</span>
+        <i class="fa-solid fa-chevron-right text-[7px] sm:text-[10px]"></i>
+    `;
 
-    // Evento para mostrar as categorias correspondentes
-    departmentItem.addEventListener("mouseenter", () => showCategories(dept.categories))
-
-    departmentItem.addEventListener("mouseenter", () => {
-      document.querySelectorAll("#departmentsList li").forEach((item) => {
-        item.classList.remove("text-blue-primary", "font-bold")
+    if (isMobileScreen()) {
+      departmentItem.addEventListener("touchstart", () => {
+        showCategories(dept.categories, true);
+        highlightSelectedDepartment(departmentItem, "departmentsListMobile");
       })
 
-      departmentItem.classList.add("text-blue-primary", "font-bold")
-    })
+      departmentsListMobile.appendChild(departmentItem);
+    } else {
+      departmentItem.addEventListener("mouseenter", () => {
+        showCategories(dept.categories, false);
+        highlightSelectedDepartment(departmentItem, "departmentsList");
+      })
 
-    departmentsList.appendChild(departmentItem)
-  })
+      departmentsList.appendChild(departmentItem);
+    }
+  });
 }
+// Função para exibir categorias
+function showCategories(categories, isMobile) {
+  const container = isMobile ? categoriesContainerMobile : categoriesContainer;
+  const list = isMobile ? listCategoriesMobile : listCategories;
 
-// Função para exibir categorias conforme o departamento selecionado
-function showCategories(categories) {
-  listCategories.innerHTML = ""
-  categoriesContainer.classList.remove("hidden")
+  list.innerHTML = "";
+  container.classList.remove("hidden");
 
-  // Criamos 3 ULs para organizar em colunas
-  const columns = [document.createElement("ul"), document.createElement("ul"), document.createElement("ul")]
+  // Cria 3 colunas para exibir as categorias
+  const columns = [document.createElement("ul"), document.createElement("ul"), document.createElement("ul")];
 
-  columns.forEach(column => {
-    column.className = "flex flex-col gap-2"
-  })
+  columns.forEach((column) => {
+    column.className = "flex flex-col gap-2";
+  });
 
-  // Distribuição das categorias entre as colunas
   categories.forEach((category, index) => {
-    const listItem = document.createElement("li")
-    const categoryItem = document.createElement("button")
-    categoryItem.className = "block text-sm px-4 py-2 cursor-pointer hover:text-blue-primary hover:font-bold"
-    categoryItem.textContent = category
+    const listItem = document.createElement("li");
+    const categoryItem = document.createElement("button");
 
-    listItem.appendChild(categoryItem)
+    categoryItem.className = "block text-[9px] px-2 py-2 cursor-pointer sm:px-4 sm:text-xs md:text-sm hover:text-blue-primary hover:font-bold";
+    categoryItem.textContent = category;
 
-    // Distribui as categorias entre as colunas (ex: 1ª, 2ª, 3ª, 1ª, 2ª...)
-    columns[index % 3].appendChild(listItem)
-  })
+    listItem.appendChild(categoryItem);
+    columns[index % 3].appendChild(listItem);
+  });
 
-  // Limpa e adiciona as colunas ao `listCategories`
-  listCategories.innerHTML = ""
-  columns.forEach(column => listCategories.appendChild(column))
+  columns.forEach((column) => {
+    list.appendChild(column);
+  });
 }
 
-// Eventos para exibir/ocultar o dropdown
+// Função para destacar o departamento selecionado
+function highlightSelectedDepartment(departmentItem, listId) {
+  document.querySelectorAll(`#${listId} li`).forEach((item) => {
+    item.classList.remove("text-blue-primary", "font-bold");
+  })
+
+  departmentItem.classList.add("text-blue-primary", "font-bold");  
+}
+
+// Eventos para abrir e fechar o dropdown no desktop
 dropdownButton.addEventListener("mouseenter", () => {
-  dropdownMenu.classList.remove("hidden")
-  populateDepartments()
-})
+  dropdownMenu.classList.remove("hidden");
+  populateDepartments();
+});
 
 dropdownMenu.addEventListener("mouseleave", () => {
-  dropdownMenu.classList.add("hidden")
-  categoriesContainer.classList.add("hidden")
-})
+  dropdownMenu.classList.add("hidden");
+  categoriesContainer.classList.add("hidden");
+});
 
-const menuMobile = document.getElementById("menuMobile")
-const dropDownMenuMobile = document.getElementById("dropDownMenuMobile")
-
-menuMobile.addEventListener("click", () => {
-  dropDownMenuMobile.classList.remove("hidden")
-})
-
+// Eventos para abrir e fechar o dropdown no mobile
+dropDownButtonMobile.addEventListener("click", () => {
+  dropDownMenuMobile.classList.remove("hidden");
+  populateDepartments();
+});
 
 
+
+
+// ----------- footer
 const faqContainer = document.querySelectorAll("[data-faq-footer-container]")
 const faqFooterResponse = document.querySelectorAll("[data-faq-footer-response]")
 
@@ -252,3 +282,5 @@ faqContainer.forEach((container, index) => {
     faqFooterResponse[index].classList.toggle("hidden")
   })
 })
+
+

@@ -30,20 +30,24 @@
         <section class="max-w-[1440px] px-4 py-4 mx-auto lg:px-6">
             <!-- MENU MOBILE -->
             <div class="flex items-center justify-between gap-6 mb-7">
-
-                <div id="menuMobile" class="relative block lg:hidden">
+                <div id="dropDownButtonMobile" class="relative block lg:hidden">
                     <i class="fa-solid fa-bars mr-2 text-2xl"></i>
 
-                    <div id="dropDownMenuMobile" class="hidden absolute left-0 ">
-                        <div class="bg-[#F5F5F5] w-48">
-                            <ul id="departmentsList" class="flex flex-col items-start gap-3">
-                                <li
-                                    class="w-full flex justify-between items-center cursor-pointer px-4 py-2 hover:text-blue-primary">
-                                    <span>Departamento</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                                </li>
-                            </ul>
+                    <div id="dropDownMenuMobile" class="hidden absolute left-0 bg-white nav-shadow">
+                        <div class="w-full h-full flex justify-between items-start">
+                            <div class="bg-[#F5F5F5] w-24 sm:w-36 md:w-48">
+                                <ul id="departmentsListMobile" class="flex flex-col items-start gap-3 text-[9px] sm:text-xs md:text-sm">
+                                </ul>
+                            </div>
+
+                            <div id="categoriesContainerMobile" class="hidden mr-3 sm:mr-10">
+                                <div id="listCategoriesMobile" class="flex justify-center gap-2 sm:gap-8 text-[9px] sm:text-sm">
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -508,14 +512,15 @@
                                 <div data-faq-footer-response class="hidden">
                                     <ul class="flex flex-col gap-2 mt-3">
                                         <li><a href="#"><strong>Telefone:</strong> (00) 1234-5678 </a></li>
-                                        <li><a href="mailto:exemplo@exemplo.com.br"><strong>E-mail:</strong> exemplo@exemplo.com.br
+                                        <li><a href="mailto:exemplo@exemplo.com.br"><strong>E-mail:</strong>
+                                                exemplo@exemplo.com.br
                                             </a></li>
                                         <li><strong>Horário de atendimento:</strong></li>
                                         <li>Segunda a Sábado: 07h00 às 23h00</li>
                                         <li>Domingos e Feriados: 07h00 às 21h00</li>
                                     </ul>
                                 </div>
-                            </li>                     
+                            </li>
                         </ul>
                     </div>
                 </div>
