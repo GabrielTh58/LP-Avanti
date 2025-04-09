@@ -57,19 +57,23 @@
                 </div>
 
 
-                <div class="flex items-center gap-16">
-                    <img src="src/assets/images/logos/Avanti_Main_Logo.svg" alt="Logo Avanti">
+                <div class="search-group flex-col items-center">
+                    <div class="flex items-center gap-16">
+                        <img src="src/assets/images/logos/Avanti_Main_Logo.svg" alt="Logo Avanti">
 
-                    <div
-                        class="hidden lg:flex w-[570px]  items-center justify-between border border-zinc-400 rounded-lg px-2 py-1.5">
-                        <input
-                            class="w-full outline-none pl-5 text-black placeholder:text-zinc-900 placeholder:font-semibold"
-                            type="text" placeholder="Digite aqui o que você procura">
-                        <i class="fa-solid fa-magnifying-glass text-zinc-700"></i>
+                        <div
+                            class="hidden lg:flex w-[570px] items-center justify-between border border-zinc-400 rounded-lg px-2 py-1.5">
+                            <input data-search-input
+                                class="w-full outline-none pl-5 text-black placeholder:text-zinc-900 placeholder:font-semibold"
+                                type="text" placeholder="Digite aqui o que você procura">
+                            <i class="fa-solid fa-magnifying-glass text-zinc-700"></i>
+                        </div>
                     </div>
+
+                    <p data-search-result class="mt-2 ml-56 font-semibold text-zinc-800"></p>
                 </div>
 
-                <div class="flex items-center gap-2">
+                <div class="flex items-center  gap-2">
                     <div class="hidden lg:flex items-center gap-2">
                         <i class="fa-regular fa-user text-2xl text-blue-primary"></i>
 
@@ -89,10 +93,18 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-between border border-zinc-400 rounded-lg px-2 py-1.5 lg:hidden">
-                <input class="w-full outline-none pl-5 placeholder:text-black placeholder:font-semibold" type="text"
-                    placeholder="Digite aqui o que você procura">
-                <i class="fa-solid fa-magnifying-glass text-zinc-700 text-xl"></i>
+            <div class="search-group">
+                <div
+                    class="flex items-center justify-between border border-zinc-400 rounded-lg px-2 py-1.5 sm:w-[70%] sm:mx-auto lg:hidden">
+                    <input data-search-input
+                        class="w-full outline-none pl-5 placeholder:text-black placeholder:font-semibold" type="text"
+                        placeholder="Digite aqui o que você procura">
+                    <i class="fa-solid fa-magnifying-glass text-zinc-700 text-xl"></i>
+                </div>
+
+                <div class="flex items-center lg:justify-center  sm:w-[70%] sm:mx-auto">
+                    <p data-search-result class="mt-2 font-semibold text-zinc-800"></p>
+                </div>
             </div>
 
             <nav class="hidden my-6 lg:block">
@@ -160,15 +172,19 @@
                     <source srcset="/src/assets/images/hero_mobile.png" media="(max-width: 640px)">
                     <source srcset="/src/assets/images/hero.png" media="(min-width: 1024px)">
 
-                    <img src="src/assets/images/hero.png" alt="Roupas em cima de um banco" class="h-[300px] lg:h-full mr-2">
+                    <img src="src/assets/images/hero.png" alt="Roupas em cima de um banco"
+                        class="h-[300px] lg:h-full mr-2">
                 </picture>
             </div>
 
 
             <div class="flex flex-col items-start uppercase flex-wrap gap-3 lg:gap-0 lg:items-center">
-                <h1 class="text-center sm:text-left text-4xl font-thin lg:text-start lg:text-6xl lg:mb-5 xl:text-8xl"><span
-                        class="font-black block sm:inline">SUPER</span>SALE</h1>
-                <p class="text-xs font-bold  text-blue-primary xl:tracking-[0.5rem] lg:tracking-[0.2rem] lg:text-base lg:mb-4 xl:text-2xl">Itens
+                <h1 class="text-center sm:text-left text-4xl font-thin lg:text-start lg:text-6xl lg:mb-5 xl:text-8xl">
+                    <span class="font-black block sm:inline">SUPER</span>SALE
+                </h1>
+                <p
+                    class="text-xs font-bold  text-blue-primary xl:tracking-[0.5rem] lg:tracking-[0.2rem] lg:text-base lg:mb-4 xl:text-2xl">
+                    Itens
                     selecionados com até</p>
                 <p class="text-[32px] text-blue-primary font-bold sm:self-center lg:text-4xl xl:text-6xl">50%OFF</p>
             </div>
