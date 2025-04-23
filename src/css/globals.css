@@ -37,11 +37,11 @@
   }
 
   .bg-avanti-mobile {
-    background-image: url("/src/assets/images/bg_avanti_mobile.png");
+    background-image: url("../assets/images/bg_avanti_mobile.png");
   }
 
   .bg-avanti-desktop {
-    background-image: url("src/assets/images/bg_avanti.png");
+    background-image: url("../assets/images/bg_avanti.png");
   }
 }
 
