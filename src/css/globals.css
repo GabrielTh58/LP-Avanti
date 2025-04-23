@@ -43,6 +43,10 @@
   .bg-avanti-desktop {
     background-image: url("../assets/images/bg_avanti.png");
   }
+
+  .bg-dropdown{
+    background-image: url("../assets/images/cup2_Mini.png");
+  }
 }
 
 .custom-scrollbar {
